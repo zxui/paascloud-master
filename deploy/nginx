@@ -1,0 +1,47 @@
+server {
+    listen       80;
+    server_name  dev-admin.paascloud.net;
+    location / {
+        proxy_pass http://localhost:7020;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+}
+server {
+    listen       80;
+    server_name  dev-login.paascloud.net;
+    location / {
+        proxy_pass http://localhost:7010;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+}
+server {
+    listen       80;
+    server_name  dev-mall.paascloud.net;
+    location / {
+        proxy_pass http://localhost:7030;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+}
+server {
+    listen       80;
+    server_name  dev-api.paascloud.net;
+    location ~ {
+        proxy_pass   http://localhost:7979;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+}

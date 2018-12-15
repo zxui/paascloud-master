@@ -27,5 +27,21 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.8.4</version>
         </dependency>
-3. 还有就是 对着改过的host把要装的东西都装好 像是 zk redis mq mysql 
+3. 还有就是 对着改过的host把要装的东西都装好 像是 zk redis mq mysql
+
+
+4.配置hosts
+127.0.0.1 paascloud-mq-rabbit
+127.0.0.1 paascloud-db-redis
+127.0.0.1 paascloud-gateway
+127.0.0.1 paascloud-db-mysql
+127.0.0.1 paascloud-provider-uac
+127.0.0.1 paascloud-provider-zk
+
+5.启动顺序
+  1. paascloud-eureka
+  2. paascloud-discovery
+  3. paascloud-provider-uac
+  4. paascloud-gateway
+  5. 剩下微服务无启动数序要求
 
