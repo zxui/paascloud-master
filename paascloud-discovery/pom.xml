@@ -8,6 +8,7 @@
   <packaging>jar</packaging>
 
   <name>paascloud-discovery</name>
+  <version>1.0</version>
   <description>配置中心</description>
 
   <parent>
