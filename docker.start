@@ -8,15 +8,244 @@ docker run -p 5672:5672 -d --name paascloud-mq-rabbit --hostname paascloud-mq-ra
 docker run -p 2181:2181 -d --name paascloud-provider-zk --hostname paascloud-provider-zk --restart always zookeeper:3.4
 docker run -p 6379:6379 -d --name paascloud-db-redis --hostname paascloud-db-redis redis:4
 
-docker run -p 8761:8761 -d --name paascloud-eureka --hostname paascloud-eureka paascloud-eureka:1.0
-docker run -p 8080:8080 -d --name paascloud-discovery --hostname paascloud-discovery paascloud-discovery:1.0
-docker run -p 8000:8000 -d --name paascloud-provider-uac --hostname paascloud-provider-uac paascloud-provider-uac:1.0
-docker run -p 7979:7979 -d --name paascloud-gateway --hostname paascloud-gateway paascloud-gateway:1.0
-docker run -p 8010:8010 -d --name paascloud-monitor --hostname paascloud-monitor paascloud-monitor:1.0
-docker run -p 8020:8020 -d --name paascloud-zipkin --hostname paascloud-zipkin paascloud-zipkin:1.0
-docker run -p 8030:8030 -d --name paascloud-provider-mdc --hostname paascloud-provider-mdc paascloud-provider-mdc:1.0
-docker run -p 8050:8050 -d --name paascloud-provider-omc --hostname paascloud-provider-omc paascloud-provider-omc:1.0
-docker run -p 8070:8070 -d --name paascloud-provider-opc --hostname paascloud-provider-opc paascloud-provider-opc:1.0
-docker run -p 8090:8090 -d --name paascloud-provider-tpc --hostname paascloud-provider-tpc paascloud-provider-tpc:1.0
+docker run -p 8761:8761 -d --name paascloud-eureka --hostname paascloud-eureka \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-eureka:1.0
+
+docker run -p 8080:8080 -d --name paascloud-discovery --hostname paascloud-discovery \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-discovery:1.0
+
+docker run -p 8000:8000 -d --name paascloud-provider-uac --hostname paascloud-provider-uac \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-provider-uac:1.0
+
+docker run -p 7979:7979 -d --name paascloud-gateway --hostname paascloud-gateway \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-gateway:1.0
+
+docker run -p 8010:8010 -d --name paascloud-monitor --hostname paascloud-monitor \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-monitor:1.0
+
+docker run -p 8020:8020 -d --name paascloud-zipkin --hostname paascloud-zipkin \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-zipkin:1.0
+
+docker run -p 8030:8030 -d --name paascloud-provider-mdc --hostname paascloud-provider-mdc \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-provider-mdc:1.0
+
+docker run -p 8050:8050 -d --name paascloud-provider-omc --hostname paascloud-provider-omc \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-provider-omc:1.0
+
+docker run -p 8070:8070 -d --name paascloud-provider-opc --hostname paascloud-provider-opc \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-provider-opc:1.0
+
+docker run -p 8090:8090 -d --name paascloud-provider-tpc --hostname paascloud-provider-tpc \
+--add-host dev-login.paascloud.net:192.168.211.132  \
+--add-host dev-admin.paascloud.net:192.168.211.132  \
+--add-host dev-api.paascloud.net:192.168.211.132  \
+--add-host dev-mall.paascloud.net:192.168.211.132  \
+--add-host paascloud-discovery:192.168.211.132  \
+--add-host paascloud-eureka:192.168.211.132  \
+--add-host paascloud-gateway:192.168.211.132  \
+--add-host paascloud-monitor:192.168.211.132  \
+--add-host paascloud-zipkin:192.168.211.132  \
+--add-host paascloud-provider-uac:192.168.211.132  \
+--add-host paascloud-provider-mdc:192.168.211.132  \
+--add-host paascloud-provider-omc:192.168.211.132  \
+--add-host paascloud-provider-opc:192.168.211.132  \
+--add-host paascloud-db-mysql:192.168.211.132  \
+--add-host paascloud-db-redis:192.168.211.132  \
+--add-host paascloud-mq-rabbit:192.168.211.132  \
+--add-host paascloud-mq-rocket:192.168.211.132  \
+--add-host paascloud-provider-zk:192.168.211.132  \
+--add-host paascloud-zk-01:192.168.211.132  \
+--add-host paascloud-zk-02:192.168.211.132  \
+--add-host paascloud-zk-03:192.168.211.132  \
+paascloud-provider-tpc:1.0
 
 docker run -p 27017:27017 --name mongodb -d mongo:3
